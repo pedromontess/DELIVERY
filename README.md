@@ -1,2 +1,2 @@
-# DELIVERY
-projeto-delivery
+# project
+project

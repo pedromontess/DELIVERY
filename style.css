@@ -1,0 +1,320 @@
+:root {
+  /* Tons base inspirados na estética Apple */
+  --cor-branco: #ffffff;
+  --cor-cinza-claro: #f2f2f2;
+  --cor-prata: #d1d1d1;
+  --cor-preto: #000000;
+
+  /* ✨ Detalhes dourados para botão de compra */
+  --cor-dourado: #d4af37;
+
+  /* 💬 Tipografia */
+  --cor-texto: #1c1c1c;
+  --cor-texto-suave: #666666;
+
+  /* 🔘 Estados de interação */
+  --cor-hover: #e0c26e;
+  --cor-borda-hover: #cccccc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #eaf4e6;
+  color: #333;
+}
+
+/* HEADER / NAV */
+header {
+  background-color: var(--cor-branco);
+  padding: 20px 40px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--cor-preto);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--cor-preto);
+  text-decoration: none;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--cor-dourado);
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--cor-prata);
+  transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* MAIN / SEÇÕES */
+main {
+  padding: 40px 20px;
+  background-color: var(--cor-branco);
+  text-align: center;
+}
+
+main h2 {
+  font-size: 3rem;
+  color: var(--cor-preto);
+  margin-bottom: 10px;
+}
+
+main p {
+  font-size: 1.5rem;
+  color: var(--cor-texto);
+  margin-bottom: 40px;
+}
+
+/* SEÇÃO DE PRODUTOS */
+.produtos-section {
+  /* background-color: var(--cor-cinza-claro); */
+  padding: 40px 20px;
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+.produtos-section h3 {
+  font-size: 2rem;
+  color: var(--cor-preto);
+  margin-bottom: 30px;
+}
+
+/* GRID DE PRODUTOS */
+.produtos-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* CARD INDIVIDUAL */
+.card-produto {
+  background-color: var(--cor-branco);
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.card-produto:hover {
+  transform: translateY(-5px);
+  border: 1px solid var(--cor-borda-hover);
+}
+
+.card-produto img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.card-produto h4 {
+  font-size: 1.1rem;
+  color: var(--cor-texto);
+  margin-bottom: 5px;
+}
+
+.card-produto p {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 15px;
+}
+
+/* BOTÃO COMPRAR */
+.btn-comprar {
+  background-color: var(--cor-dourado);
+  color: var(--cor-preto);
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+  background-color: var(--cor-hover);
+}
+
+/* BOTÃO FLUTUANTE WHATSAPP */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-button img {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .produtos-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-produto {
+    width: 90%; /* ocupa quase toda a largura da tela */
+  }
+
+  main h2 {
+    font-size: 2rem;
+  }
+
+  main p {
+    font-size: 0.95rem;
+  }
+
+  .produtos-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .btn-comprar {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .whatsapp-button {
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-button img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* BOTÃO HAMBÚRGUER */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--cor-preto);
+  cursor: pointer;
+}
+
+/* Menu padrão */
+.menu {
+  display: flex;
+  gap: 30px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    flex-direction: column;
+    background-color: var(--cor-branco);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: none;
+    padding: 10px 20px;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  nav ul li a {
+    padding: 10px 0;
+  }
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--cor-cinza-claro);
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  border-top: 1px solid var(--cor-prata);
+}
+
+footer > p {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+  margin-top: 10px;
+}
