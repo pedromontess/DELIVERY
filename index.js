@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   botoesComprar.forEach(botao => {
     botao.addEventListener('click', () => {
       alert('Você será redirecionado para nossa página no Mercado Livre.');
-      window.location.href = 'https://www.mercadolivre.com.br/';
+      window.open('https://www.mercadolivre.com.br/', '_blank');
     });
   });
 });
