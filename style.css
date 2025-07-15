@@ -1,23 +1,23 @@
 :root {
-  /* Tons base inspirados na estética Apple */
   --cor-branco: #ffffff;
   --cor-cinza-claro: #f2f2f2;
   --cor-prata: #d1d1d1;
   --cor-preto: #000000;
-
-  /* ✨ Detalhes dourados para botão de compra */
   --cor-dourado: #d4af37;
-
-  /* 💬 Tipografia */
   --cor-texto: #1c1c1c;
-  --cor-texto-suave: #666666;
-
-  /* 🔘 Estados de interação */
+  --cor-texto-suave: #4d4d4d;
   --cor-hover: #e0c26e;
   --cor-borda-hover: #cccccc;
 }
+
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 * {
@@ -26,13 +26,18 @@ html {
   box-sizing: border-box;
 }
 
+a:focus, button:focus {
+  outline: 2px solid var(--cor-dourado);
+  outline-offset: 3px;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #eaf4e6;
   color: #333;
 }
 
-/* HEADER / NAV */
+/* HEADER */
 header {
   background-color: var(--cor-branco);
   padding: 20px 40px;
@@ -87,7 +92,7 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
-/* MAIN / SEÇÕES */
+/* MAIN */
 main {
   padding: 40px 20px;
   background-color: var(--cor-branco);
@@ -106,9 +111,8 @@ main p {
   margin-bottom: 40px;
 }
 
-/* SEÇÃO DE PRODUTOS */
+/* PRODUTOS */
 .produtos-section {
-  /* background-color: var(--cor-cinza-claro); */
   padding: 40px 20px;
   border-radius: 20px;
   margin: 40px auto;
@@ -121,7 +125,6 @@ main p {
   margin-bottom: 30px;
 }
 
-/* GRID DE PRODUTOS */
 .produtos-grid {
   display: flex;
   gap: 20px;
@@ -129,7 +132,6 @@ main p {
   justify-content: center;
 }
 
-/* CARD INDIVIDUAL */
 .card-produto {
   background-color: var(--cor-branco);
   border-radius: 12px;
@@ -146,7 +148,6 @@ main p {
 
 .card-produto img {
   width: 100%;
-  height: auto;
   border-radius: 8px;
   margin-bottom: 15px;
 }
@@ -179,7 +180,7 @@ main p {
   background-color: var(--cor-hover);
 }
 
-/* BOTÃO FLUTUANTE WHATSAPP */
+/* WHATSAPP */
 .whatsapp-button {
   position: fixed;
   bottom: 20px;
@@ -205,16 +206,39 @@ main p {
   height: 28px;
 }
 
+/* RESPONSIVO */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
-    gap: 10px;
     align-items: flex-start;
+    gap: 10px;
+    position: relative;
   }
 
-  nav ul {
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--cor-preto);
+    cursor: pointer;
+  }
+
+  .menu {
     flex-direction: column;
-    gap: 10px;
+    background-color: var(--cor-branco);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    display: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+  }
+
+  .menu.show {
+    display: flex;
   }
 
   .produtos-grid {
@@ -223,7 +247,12 @@ main p {
   }
 
   .card-produto {
-    width: 90%; /* ocupa quase toda a largura da tela */
+    width: 90%;
+  }
+
+  .btn-comprar {
+    width: 100%;
+    padding: 12px;
   }
 
   main h2 {
@@ -236,11 +265,6 @@ main p {
 
   .produtos-section h3 {
     font-size: 1.5rem;
-  }
-
-  .btn-comprar {
-    width: 100%;
-    padding: 12px;
   }
 
   .whatsapp-button {
@@ -256,56 +280,6 @@ main p {
   }
 }
 
-/* BOTÃO HAMBÚRGUER */
-.menu-toggle {
-  display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: var(--cor-preto);
-  cursor: pointer;
-}
-
-/* Menu padrão */
-.menu {
-  display: flex;
-  gap: 30px;
-}
-
-/* RESPONSIVO */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .menu {
-    flex-direction: column;
-    background-color: var(--cor-branco);
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 200px;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    display: none;
-    padding: 10px 20px;
-  }
-
-  .menu.show {
-    display: flex;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-  }
-
-  nav ul li a {
-    padding: 10px 0;
-  }
-}
-
 /* FOOTER */
 footer {
   background-color: var(--cor-cinza-claro);
@@ -316,8 +290,7 @@ footer {
   border-top: 1px solid var(--cor-prata);
 }
 
-footer > p {
+footer p {
   font-size: 0.8rem;
-  color: var(--cor-texto-suave);
   margin-top: 10px;
 }
