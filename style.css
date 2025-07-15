@@ -16,6 +16,9 @@
   --cor-hover: #e0c26e;
   --cor-borda-hover: #cccccc;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 * {
   margin: 0;
